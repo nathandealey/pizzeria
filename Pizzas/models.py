@@ -16,8 +16,12 @@ class Topping(models.Model):
         return self.topping_name
 
 class Comment(models.Model):
-    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
+    pizza = models.ForeignKey(Pizza, related_name='details', on_delete=models.CASCADE)
     text = models.TextField(max_length=100)
 
     def __str__(self):
         return self.text
+
+class Image(models.Model):
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/')

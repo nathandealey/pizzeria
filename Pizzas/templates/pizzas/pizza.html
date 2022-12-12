@@ -3,6 +3,14 @@
 {% block content %}
 
 <p>Pizza: {{ pizza }} </p>
+{% for i in image %}
+<div class="col-md-4">
+    <img src="{{  i.image.url  }}" class="img-responsive" style="width: 40%; margin-right: 10px;" />
+</div>
+{% empty %}
+<p> There isn't an image for this pizza yet </p>
+{% endfor %}   
+
 <form method="POST">
     <ul>
         {% for t in toppings %}
@@ -13,18 +21,18 @@
 
     </ul>
     <br><br> 
-    <p>Comments For {{pizza}} Pizza:</p>
+    <p>Customers said this about the {{pizza}} Pizza:</p>
     <br>   
     <ul>
         {% for c in addcomment %}
         <p>-- {{ c.text }} </p>
 
         {% empty %}
-        <p> There are no comments for this pizza.</p>
+        <p> There are no reviews yet.</p>
         {% endfor %}
         
     </ul>
 
-    <p><a href="{% url 'Pizzas:comment' pizza.id %}">Add comment</a></p>
+    <p><a href="{% url 'Pizzas:comment' pizza.id %}">What would you like to tell us?</a></p>
 </form>
 {% endblock content %}

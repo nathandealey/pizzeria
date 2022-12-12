@@ -1,0 +1,14 @@
+body {
+    background-color: whitesmoke;
+  }
+  
+  h1 {
+    color: blue;
+    text-align: center;
+  }
+  
+  p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+  }
+  

@@ -2,9 +2,13 @@
 
 {% block content %}
 
-<p><a href= "{% url 'Pizzas:pizza' pizza.id %}">{{pizza}}</a></p>
+{% load static %}
 
-<p>Add a comment:</p>
+<link rel="stylesheet" href="{% static 'format2.css' %}">
+
+<p><a href= "{% url 'Pizzas:pizza' pizza.id %}"> {{pizza}} </a></p>
+
+<p>What would you like to tell us?:</p>
 
 <form action= "{% url 'Pizzas:comment' pizza.id %}" method="post">
     {% csrf_token %}
